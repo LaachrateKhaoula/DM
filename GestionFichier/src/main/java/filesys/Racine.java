@@ -1,5 +1,7 @@
 package filesys;
 
+import filesysTest.ReperException;
+
 public abstract class Racine
 {
     // instance variables - replace the example below with your own
@@ -11,7 +13,9 @@ public abstract class Racine
     public Racine(String parNom)
     {
         // initialise instance variables
-       nom = parNom;
+    	
+    	nom = parNom;
+       
     }
     
     

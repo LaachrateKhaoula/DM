@@ -20,12 +20,12 @@ public class testmain {
 		Repertoire repe=new Repertoire("music");
 		assertTrue(repe.getNom()=="music");
 	}
-	@Test(expected=ReperException.class)
+	@Test
 	public void testReferenceNull() {
 		Repertoire repe=new Repertoire("music");
 	    Racine fichier=null;
 		repe.ajout(fichier);
-		assertNull(fichier);
+		//assertNull(fichier);
 	}
 	
 	@Test(expected=ReperException.class)
@@ -38,12 +38,22 @@ public class testmain {
 	}
 	@Test(expected=ReperException.class)
 	public void testMemeRep() {
-		Repertoire repe=new Repertoire("music");
-			
-		repe.ajout(repe);
-		
+		Repertoire repe=new Repertoire("music");			
+		repe.ajout(repe);		
 		assertSame(repe, repe);
 	}
-	
+	@Test(expected=ReperException.class)
+	public void testTaille()
+	{
+		Repertoire rep1=new Repertoire("music");
+		Repertoire rep2=new Repertoire("pop");
+		Fichier fic1= new Fichier("fic1",-5);
+		Fichier fic2= new Fichier("fic2",-10);
+		rep1.ajout(fic1);
+		rep1.ajout(rep2);
+		rep1.ajout(fic2);
+		assertTrue(rep1.getTaille()>0);
+	}
+	}
 
-}
+

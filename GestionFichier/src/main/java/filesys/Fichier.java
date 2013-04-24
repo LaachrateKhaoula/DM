@@ -1,5 +1,7 @@
 package filesys;
 
+import filesysTest.ReperException;
+
 public class Fichier extends Racine
 {
     // instance variables - replace the example below with your own
@@ -12,6 +14,8 @@ public class Fichier extends Racine
     {
         // initialise instance variables
         super(parNom);
+        if(parTaille <= 0) throw new ReperException("Taille negative");
+        {System.out.println("Taille negative");}
         taille = parTaille;
     }
     
